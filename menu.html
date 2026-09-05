@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Bellatrix Abdul Rahman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow glow-a"></div><div class="glow glow-b"></div>
+
+<header class="header">
+    <a class="brand" href="dashboard.html"><span>B</span> dashboard</a>
+    <button class="menu-toggle" aria-label="Menu"><i></i><i></i><i></i></button>
+    <nav>
+        <a href="menu.html" class="active">Dashboard</a>
+        <a href="index.html">View Website</a>
+        <a href="#" id="logoutBtn" style="color: #ef4444;">Logout</a>
+    </nav>
+</header>
+
+<main>
+<section class="page-content">
+    <p class="eyebrow">Control Center</p>
+    <h1 id="welcomeTitle">Welcome, Admin!</h1>
+    <p class="lead">Ini adalah halaman dashboard rahasia untuk memantau status akses dan ringkasan portofolio.</p>
+
+    <!-- KARTU STATISTIK / RINGKASAN -->
+    <div class="cards" style="margin-bottom: 30px;">
+        <article class="panel">
+            <span class="number">STATUS</span>
+            <h2>Session Active</h2>
+            <p>Sesi login aktif selama 24 jam ke depan.</p>
+        </article>
+        <article class="panel">
+            <span class="number">SECURITY</span>
+            <h2>Protected</h2>
+            <p>Dilindungi dengan LocalStorage & Password Auth.</p>
+        </article>
+        <article class="panel">
+            <span class="number">TARGET</span>
+            <h2>PKL & CCNA</h2>
+            <p>Persiapan industrial work practice & networking.</p>
+        </article>
+    </div>
+
+    <!-- PANEL INFORMASI TAMBAHAN -->
+    <div class="content-grid">
+        <article class="panel">
+            <h2>Quick Actions</h2>
+            <p style="margin-bottom: 15px;">Akses cepat untuk kembali ke halaman utama atau mengelola sesi kamu.</p>
+            <a class="button" href="index.html" style="margin-right: 10px;">Buka Website →</a>
+            <button class="button" id="btnActionLogout" style="background: #ef4444; border:none; cursor:pointer;">Keluar (Logout)</button>
+        </article>
+        
+        <article class="panel facts">
+            <p><small>LOGIN USER</small><b id="displayUser">-</b></p>
+            <p><small>SESSION EXPIRES</small><b id="displayExpiry">24 Hours Limit</b></p>
+            <p><small>SYSTEM</small><b>Static Web Auth</b></p>
+        </article>
+    </div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> Bellatrix Abdul Rahman</footer>
+
+<!-- MEMANGGIL FILE JAVASCRIPT TERPISAH -->
+<script src="menu.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

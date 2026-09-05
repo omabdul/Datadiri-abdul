@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Bellatrix Abdul Rahman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow glow-a"></div><div class="glow glow-b"></div>
+
+<main class="login-container">
+    <article class="panel login-box">
+        <a class="brand" href="menu.html" style="justify-content: center; margin-bottom: 20px;">
+            <span>B</span> bellatrix
+        </a>
+        <h2>Restricted Access</h2>
+        <p>Masukkan nama dan password untuk masuk.</p>
+        
+        <form id="loginForm">
+            <input type="text" id="username" class="input-field" placeholder="Nama Kamu" required>
+            <input type="password" id="password" class="input-field" placeholder="Password" required>
+            <button type="submit" class="button btn-full">Login Masuk →</button>
+            <p id="errorMsg" class="error-msg">Password salah!</p>
+        </form>
+    </article>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
