@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page abdul</title>
+    
+    <!-- Favicon / Ikon Tab Browser -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+
+    <!-- Google Fonts & Font Awesome CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External CSS Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Spheres -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-glow glow-3"></div>
+
+    <!-- Liquid String SVG Overlay -->
+    <svg id="string-container">
+        <defs>
+            <linearGradient id="string-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#00f2fe" />
+                <stop offset="50%" stop-color="#4facfe" />
+                <stop offset="100%" stop-color="#00c6ff" />
+            </linearGradient>
+        </defs>
+        <path id="liquid-path" class="liquid-string" d="" />
+    </svg>
+
+    <!-- Header Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo"><i class="fa-solid fa-crown logo-icon"></i> ABDUL.</div>
+            
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#hero" class="glass-btn nav-btn active"><i class="fa-solid fa-house"></i> Beranda</a></li>
+                <li><a href="#about" class="glass-btn nav-btn"><i class="fa-solid fa-address-card"></i> Tentang</a></li>
+                <li><a href="#timeline" class="glass-btn nav-btn"><i class="fa-solid fa-timeline"></i> Perjalanan</a></li>
+                <li><a href="#projects" class="glass-btn nav-btn"><i class="fa-solid fa-laptop-code"></i> Proyek</a></li>
+                <li><a href="#certificates" class="glass-btn nav-btn"><i class="fa-solid fa-certificate"></i> Sertifikat</a></li>
+                <li><a href="#contact" class="glass-btn nav-btn"><i class="fa-solid fa-paper-plane"></i> Kontak</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="glass-btn theme-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="menu-toggle" class="glass-btn menu-btn" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero reveal">
+        <div class="glass-card tilt-card">
+            <div class="hero-header-widgets">
+                <span class="status-badge"><i class="fa-solid fa-briefcase"></i> Sedang Jalani PKL</span>
+                <span class="status-badge activity-badge"><i class="fa-solid fa-mug-hot"></i> Lagi Ngopi & Nge-debug</span>
+                <div class="clock-widget" id="realtime-clock">
+                    <i class="fa-regular fa-clock"></i> <span id="clock-text">Memuat Waktu...</span>
+                </div>
+            </div>
+
+            <h1>Halo, Saya <br><span>Bellatrix Abdul Rahman</span></h1>
+            <p>Siswa Web Development di SMK PGRI 01 Sukorejo. Berfokus pada pembangunan web fullstack modern (Laravel & React), sistem pemantauan jaringan, dan manajemen infrastruktur MikroTik.</p>
+            <a href="#projects" class="glass-btn hero-cta-btn"><i class="fa-solid fa-rocket"></i> Lihat Proyek Saya</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="reveal">
+        <h2 class="section-title"><i class="fa-solid fa-user-astronaut section-icon"></i> Tentang Saya</h2>
+        <div class="glass-card about-container tilt-card">
+            <div class="about-avatar">
+                <i class="fa-solid fa-code-merge"></i>
+            </div>
+            <div class="about-content">
+                <p>
+                    Halo! Saya Bellatrix Abdul Rahman (biasa dipanggil <strong>Abdul</strong>). Saya siswa jurusan Web Development di <strong>SMK PGRI 01 Sukorejo</strong> yang saat ini sedang aktif menjalani kegiatan Praktik Kerja Lapangan (<strong>PKL</strong>).
+                </p>
+                <p>
+                    Saya menguasai pengembangan web modern dari sisi frontend hingga backend menggunakan <strong>React</strong>, <strong>Next.js</strong>, dan <strong>Laravel</strong>. Selain coding, saya berpengalaman dalam administrasi jaringan komputer seperti penataan routing MikroTik, pemisahan trafik, hingga jaringan serat optik (Fiber Optics & GPON).
+                </p>
+                <div class="about-badges">
+                    <span class="badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
+                    <span class="badge"><i class="fa-brands fa-react"></i> React.js</span>
+                    <span class="badge"><i class="fa-brands fa-react"></i> Next.js</span>
+                    <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    <span class="badge"><i class="fa-brands fa-php"></i> PHP</span>
+                    <span class="badge"><i class="fa-solid fa-network-wired"></i> MikroTik RouterOS</span>
+                    <span class="badge"><i class="fa-solid fa-wifi"></i> Access Points (UniFi/Ruijie/TP-Link)</span>
+                    <span class="badge"><i class="fa-solid fa-cable-car"></i> Fiber Optics & GPON ONT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="reveal">
+        <h2 class="section-title"><i class="fa-solid fa-route section-icon"></i> Perjalanan Skill Saya</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"><i class="fa-solid fa-lightbulb"></i></div>
+                <div class="glass-card timeline-content tilt-card">
+                    <span class="timeline-year"><i class="fa-regular fa-calendar-check"></i> 2023 - Awal Rasa Penasaran</span>
+                    <h3>Awal Mula & Latar Belakang Ketertarikan</h3>
+                    <p>Berawal dari rasa penasaran yang tinggi tentang bagaimana sebuah website dibuat dan bagaimana jaringan internet bisa terhubung serta berjalan lancar. Hal ini menjadi titik awal dorongan saya untuk mulai belajar IT secara mandiri.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"><i class="fa-solid fa-code"></i></div>
+                <div class="glass-card timeline-content tilt-card">
+                    <span class="timeline-year"><i class="fa-regular fa-calendar-check"></i> 2024 - Fondasi Web Development</span>
+                    <h3>Penguasaan Dasar Pemrograman Web</h3>
+                    <p>Mulai mempraktikkan dasar-dasar pemrograman web secara konsisten. Mempelajari struktur HTML, perancangan tata letak dengan CSS, hingga logika interaktif dasar menggunakan JavaScript.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="glass-card timeline-content tilt-card">
+                    <span class="timeline-year"><i class="fa-regular fa-calendar-check"></i> 2025 - Framework & Infrastruktur Jaringan</span>
+                    <h3>Pendalaman Web Fullstack & Jaringan Komputer</h3>
+                    <p>Meningkatkan keahlian coding ke tingkat lanjut dengan framework modern (React, Next.js, Laravel). Di saat yang sama, mendalami administrasi jaringan MikroTik RouterOS, pemisahan trafik bandwidth, dan instalasi kabel serat optik (Fiber Optic / GPON).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"><i class="fa-solid fa-rocket"></i></div>
+                <div class="glass-card timeline-content tilt-card">
+                    <span class="timeline-year"><i class="fa-regular fa-calendar-check"></i> 2026 - Sekarang</span>
+                    <h3>Praktik Industri (PKL) & Home Server Setup</h3>
+                    <p>Aktif menjalani Praktik Kerja Lapangan (PKL), merancang antarmuka portal Hotspot MikroTik modern, serta membangun lab Home Server mandiri untuk eksperimen deployment web dan manajemen jaringan lokal.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="reveal">
+        <h2 class="section-title"><i class="fa-solid fa-cubes section-icon"></i> Proyek & Pengalaman</h2>
+        <div class="projects-grid">
+            
+            <div class="glass-card project-card tilt-card">
+                <h3><i class="fa-solid fa-chart-line"></i> Real-Time Traffic Management</h3>
+                <p>Sistem monitoring dan manajemen trafik jaringan terintegrasi berbasis Laravel dan WebSockets untuk memantau penggunaan bandwidth secara langsung (real-time).</p>
+            </div>
+
+            <div class="glass-card project-card tilt-card">
+                <h3><i class="fa-solid fa-wifi"></i> Custom Hotspot Portal UI</h3>
+                <p>Hasil eksperimen bikin antarmuka login Hotspot MikroTik kustom yang responsif, teroptimasi, dan ringan memanfaatkan HTML, CSS, serta JavaScript.</p>
+            </div>
+
+            <div class="glass-card project-card tilt-card">
+                <h3><i class="fa-solid fa-sliders"></i> Traffic Isolation & Bandwidth Queue</h3>
+                <p>Penerapan Mangle Rules, Policy-Based Routing, dan Queue Management pada MikroTik RouterOS untuk pemisahan otomatis trafik game dan video streaming.</p>
+            </div>
+
+            <div class="glass-card project-card tilt-card">
+                <h3><i class="fa-solid fa-diagram-project"></i> Optical Network Infrastructure</h3>
+                <p>Pengujian dan pengukuran redaman jaringan serat optik dengan OPM, konfigurasi GPON ONT (ZTE/FiberHome), serta pengelolaan ODP.</p>
+            </div>
+
+            <div class="glass-card project-card tilt-card">
+                <h3><i class="fa-solid fa-gem"></i> Interactive Liquid Glass Portfolio</h3>
+                <p>Eksperimen portofolio interaktif dengan efek glassmorphism, animasi tali SVG merespons scroll, serta fitur kalkulasi dan theme switcher.</p>
+            </div>
+
+            <div class="glass-card project-card tilt-card">
+                <h3><i class="fa-solid fa-server"></i> Home Server & Network Lab</h3>
+                <p>Proyek sampingan merakit lab server lokal mandiri untuk pengujian deployment web Laravel/React serta manajemen perangkat jaringan lokal.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="reveal">
+        <h2 class="section-title"><i class="fa-solid fa-award section-icon"></i> Sertifikasi & Lisensi</h2>
+        <div class="glass-card tilt-card" style="text-align: center; padding: 50px 30px;">
+            <div style="font-size: 3.5rem; color: var(--accent-color); margin-bottom: 15px;">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Sertifikat Dalam Proses</h3>
+            <p style="color: var(--text-sub); max-width: 550px; margin: 0 auto 20px; line-height: 1.6;">
+                Saat ini saya sedang berfokus mendalami persiapan sertifikasi profesional di bidang jaringan komputer dan pengembangan web (seperti CCNA & sertifikasi kompetensi web). Sertifikat resmi akan segera diperbarui di sini!
+            </p>
+            <span class="badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px;">
+                <i class="fa-solid fa-spinner fa-spin"></i> Target: CCNA & Networking Certification
+            </span>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="reveal">
+        <h2 class="section-title"><i class="fa-solid fa-comments section-icon"></i> Hubungi Saya</h2>
+        <div class="contact-grid">
+            
+            <div class="glass-card contact-info tilt-card">
+                <h3>Informasi Kontak</h3>
+                <p>Silakan hubungi saya melalui saluran di bawah ini atau berikan tanggapan Anda di kotak saran.</p>
+                
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:bellatrixabdulr@gmail.com">bellatrixabdulr@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>SMK PGRI 01 Sukorejo</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Sukorejo, Jawa Tengah</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/bellatrixabdulr-droid" target="_blank" rel="noopener noreferrer" class="glass-btn social-icon" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bellatrixabdulr@gmail.com" target="_blank" rel="noopener noreferrer" class="glass-btn social-icon gmail-btn" title="Kirim Gmail">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/abd4l_r4hm4n/" target="_blank" rel="noopener noreferrer" class="glass-btn social-icon ig-btn" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@abdul.dev01" target="_blank" rel="noopener noreferrer" class="glass-btn social-icon tiktok-btn" title="TikTok Profile">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-card comment-section tilt-card">
+                <h3><i class="fa-solid fa-paper-plane"></i> Kotak Saran & Pesan</h3>
+                <p class="sub-title">Tinggalkan nama dan saran/masukan Anda di bawah ini.</p>
+                
+                <form class="comment-form" id="commentForm">
+                    <div class="form-group">
+                        <label for="username"><i class="fa-solid fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="username" class="glass-input" placeholder="Masukkan nama Anda..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment"><i class="fa-solid fa-comment-dots"></i> Pesan / Saran</label>
+                        <textarea id="comment" class="glass-input" placeholder="Tuliskan saran atau pesan Anda di sini..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="glass-btn btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+
+                <div class="comments-list" id="commentsList">
+                    <div class="comment-item">
+                        <div class="author"><i class="fa-regular fa-circle-user"></i> Admin</div>
+                        <div class="text">Terima kasih telah mengunjungi portofolio saya! Silakan tinggalkan saran atau masukan Anda.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Custom Footer -->
+    <footer style="text-align: center; padding: 25px 10px; font-size: 0.85rem; color: var(--text-sub); border-top: 1px solid var(--card-border); margin-top: 40px;">
+        Crafted with <i class="fa-solid fa-mug-hot" style="color: #ffa500;"></i> & RouterOS by <strong>Abdul</strong> &copy; 2026.
+    </footer>
+
+    <!-- FLOATING SPOTIFY MINI PLAYER -->
+    <div class="floating-spotify-widget glass-card" id="spotify-mini-widget">
+        <div class="mini-widget-header">
+            <div class="widget-title">
+                <i class="fa-brands fa-spotify spotify-green-icon"></i>
+                <span id="widget-song-number">Lagu 1 dari 3</span>
+            </div>
+            <div class="widget-action-btns">
+                <button id="widget-prev-btn" class="glass-btn mini-btn" title="Lagu Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="widget-next-btn" class="glass-btn mini-btn" title="Lagu Berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                <button id="widget-toggle-btn" class="glass-btn mini-btn minimize-btn" title="Minimize/Expand Player">
+                    <i class="fa-solid fa-chevron-down" id="minimize-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mini-spotify-body" id="spotify-body">
+            <div class="mini-track-item active" id="iframe-wrapper">
+                <iframe id="spotify-iframe-player" style="border-radius:12px" src="https://open.spotify.com/embed/track/4xoY4lZNoTjEuHsSmhgF1G?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
