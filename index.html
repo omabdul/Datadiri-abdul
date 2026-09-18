@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bellatrix Abdul Rahman - Modern Galaxy Portfolio</title>
+  <meta name="description" content="Portofolio Modern Futuristik Bellatrix Abdul Rahman dengan latar belakang galaksi interaktif, tombol liquid glass, jam real-time, dan animasi kosmik.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets (Diubah ke luar / sejajar index.html) -->
+  <link rel="stylesheet" href="liquid-glass.css">
+  <link rel="stylesheet" href="galaxy.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       COSMIC PRELOADER (LOADING SCREEN 1-100% DENGAN IKONIK BINTANG)
+       ========================================================================== -->
+  <div id="cosmic-preloader" class="cosmic-preloader" aria-live="polite">
+    <div class="preloader-ambient-glow"></div>
+    <div class="preloader-content">
+      <div class="preloader-star-wrapper">
+        <div class="preloader-star-orbit"></div>
+        <div class="preloader-star-halo"></div>
+        <div class="iconic-cosmic-star">
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="preloader-title">MEMUAT DIMENSI KOSMIK</div>
+      <div class="preloader-counter-box">
+        <span id="preloader-counter" class="preloader-counter">1</span><span class="preloader-percent">%</span>
+      </div>
+      <div class="preloader-bar-track">
+        <div id="preloader-bar-fill" class="preloader-bar-fill"></div>
+      </div>
+      <div id="preloader-status-text" class="preloader-status-text">Menginisialisasi sistem kosmik...</div>
+    </div>
+  </div>
+
+  <!-- Dynamic Interactive Galaxy Canvas & Ambient Overlay -->
+  <canvas id="galaxy-canvas"></canvas>
+  <div class="cosmic-overlay"></div>
+
+  <!-- ==========================================================================
+       FLOATING LIQUID GLASS NAVBAR
+       ========================================================================== -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Navigasi Utama">
+      <a href="#home" class="nav-brand">
+        <div class="brand-icon-orb">
+          <i class="fas fa-atom"></i>
+        </div>
+        <div class="brand-title">
+          <span class="brand-name">Bellatrix</span>
+          <span class="brand-tag">COSMIC DEVELOPER</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Beranda</a></li>
+        <li><a href="#tentang" class="nav-link">Tentang</a></li>
+        <li><a href="#keahlian" class="nav-link">Keahlian</a></li>
+        <li><a href="#portofolio" class="nav-link">Portofolio</a></li>
+        <li><a href="#pengalaman" class="nav-link">Pengalaman</a></li>
+        <li><a href="#kontak" class="nav-link">Kontak</a></li>
+      </ul>
+
+      <!-- Navbar Right Actions -->
+      <div class="nav-actions">
+        <!-- Theme Switcher (Dark Galaxy / Light Celestial) -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Ganti Tema Gelap atau Terang" title="Ganti Mode Gelap / Terang">
+          <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+
+        <!-- CTA Direct Button -->
+        <a href="#kontak" class="liquid-btn liquid-btn-primary" style="padding: 0.65rem 1.35rem; font-size: 0.88rem;">
+          <span>Hubungi</span>
+          <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-toggle-btn" class="mobile-toggle-btn" aria-label="Buka Menu Navigasi Mobile">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
+    <a href="#home" class="mobile-nav-link"><i class="fas fa-home"></i> Beranda</a>
+    <a href="#tentang" class="mobile-nav-link"><i class="fas fa-user-astronaut"></i> Tentang Saya</a>
+    <a href="#keahlian" class="mobile-nav-link"><i class="fas fa-code"></i> Keahlian</a>
+    <a href="#portofolio" class="mobile-nav-link"><i class="fas fa-folder-open"></i> Portofolio Proyek</a>
+    <a href="#pengalaman" class="mobile-nav-link"><i class="fas fa-meteor"></i> Pengalaman</a>
+    <a href="#kontak" class="mobile-nav-link"><i class="fas fa-paper-plane"></i> Hubungi Saya</a>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO / WELCOME SECTION (JAM REAL-TIME + GESER ANIMASI)
+         ========================================================================== -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Greeting, Live Clock, Headline, Slider Gesture Reveal -->
+          <div class="hero-content">
+            
+            <!-- Live Real-Time Cosmic Clock Widget -->
+            <div class="cosmic-clock-card">
+              <div class="clock-orbital-ring">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="clock-info">
+                <div class="clock-greeting-badge">
+                  <span class="clock-pulse-dot"></span>
+                  <span id="clock-greeting-text">Selamat Datang</span>
+                </div>
+                <div class="clock-digital-display">
+                  <span id="clock-hours">00</span>:<span id="clock-minutes">00</span><span id="clock-seconds" class="clock-seconds">:00</span>
+                  <div id="clock-date" class="clock-date" title="Klik untuk mengacak dan memutar tanggal kosmik lagi 🎲">
+                    <span id="date-day-name" class="date-slot-badge">...</span>, 
+                    <span id="date-day-num" class="date-slot-badge spin-num">00</span> 
+                    <span id="date-month-name" class="date-slot-badge spin-month">...</span> 
+                    <span id="date-year" class="date-slot-badge spin-year">0000</span>
+                    <i class="fas fa-dice date-dice-icon"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Greeting & Identity Headline -->
+            <div class="hero-greeting smooth-reveal">
+              <span class="liquid-badge">
+                <i class="fas fa-network-wired"></i> IT Infrastructure, Network & Web Specialist
+              </span>
+            </div>
+
+            <h1 class="hero-title smooth-reveal delay-1">
+              Halo, nama saya <br>
+              <span class="text-gradient">Bellatrix Abdul Rahman</span>
+            </h1>
+
+            <div class="hero-subtitle smooth-reveal delay-2">
+              <i class="fas fa-satellite-dish" style="color: var(--color-cyan);"></i>
+              <span>Spesialis MikroTik • Akses Poin • Teknisi Windows & Web Hosting</span>
+            </div>
+
+            <p class="hero-description smooth-reveal delay-3">
+              Menyediakan solusi komprehensif mulai dari konfigurasi router MikroTik, instalasi akses poin (Wi-Fi indoor/outdoor), instalasi ulang & maintenance sistem Windows/PC, hingga pengelolaan hosting online dan pembuatan website modern berestetika liquid glass.
+            </p>
+
+            <!-- ================================================================
+                 FITUR GESER MUNCUL ANIMASI: COSMIC SLIDE REVEAL CONTROLLER
+                 ================================================================ -->
+            <div class="interactive-slider-wrapper smooth-reveal delay-4">
+              <div class="slider-label">
+                <span><i class="fas fa-wand-magic-sparkles"></i> Fitur Interaktif Rahasia</span>
+                <span id="slider-status-tag" class="slider-status-tag">GESER KE KANAN 👉</span>
+              </div>
+
+              <!-- Draggable Cosmic Slider Track -->
+              <div id="cosmic-slide-track" class="cosmic-slide-track" title="Tarik atau geser tombol ini ke kanan untuk memicu animasi!">
+                <div id="slide-fill-trail" class="slide-fill-trail"></div>
+                <div id="slide-hint-text" class="slide-hint-text">
+                  <span>👉 Geser tombol ini untuk melihat animasi kosmik!</span>
+                </div>
+                <div id="slide-orb-thumb" class="slide-orb-thumb">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </div>
+
+              <!-- Animated Secret Panel (Revealed upon dragging/swiping) -->
+              <div id="slide-secret-banner" class="slide-secret-banner">
+                <div class="secret-content">
+                  <div class="secret-icon">
+                    🪐
+                  </div>
+                  <div>
+                    <h4 class="secret-title">✨ Mode Dimensi Kosmik Terbuka!</h4>
+                    <p class="secret-desc">
+                      Sensasi visual galaksi penuh telah aktif! Anda baru saja membuka aura kosmik dengan efek partikel stardust, 3D hologram tilt, dan akselerasi visual.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Liquid Glass CTA Action Buttons -->
+            <div class="hero-cta-group smooth-reveal delay-4">
+              <a href="#keahlian" class="liquid-btn liquid-btn-primary">
+                <i class="fas fa-tools"></i>
+                <span>Lihat Keahlian Lengkap</span>
+              </a>
+
+              <a href="#kontak" class="liquid-btn">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>Hubungi Saya</span>
+              </a>
+
+              <a href="#tentang" class="liquid-btn" style="padding: 0.85rem 1.25rem;" title="Pelajari Profil Lengkap">
+                <i class="fas fa-user-astronaut"></i>
+                <span>Tentang Saya</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: 3D Holographic Identity Card -->
+          <div class="hero-visual smooth-reveal-right">
+            <div id="cosmic-identity-card" class="cosmic-identity-card liquid-card">
+              
+              <!-- Floating badges over card -->
+              <div class="floating-cosmic-badge badge-top-right">
+                <i class="fas fa-circle-check" style="color: var(--color-emerald);"></i>
+                <span>Siap Menangani Proyek & Servis</span>
+              </div>
+
+              <div class="floating-cosmic-badge badge-bottom-left">
+                <i class="fas fa-wifi" style="color: var(--color-cyan);"></i>
+                <span>MikroTik & AP Pro</span>
+              </div>
+
+              <!-- Avatar with Rotating Galactic Halo -->
+              <div class="card-avatar-wrapper">
+                <div class="avatar-halo-orbit"></div>
+                <div class="avatar-halo-glow"></div>
+                <div class="avatar-img-box">
+                  <!-- Stylish Cosmic Avatar Illustration -->
+                  <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="url(#avatarGradient)"/>
+                    <!-- Cosmic Helmet / Character Representation -->
+                    <circle cx="50" cy="42" r="20" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M22 84C22 68 34 60 50 60C66 60 78 68 78 84" fill="rgba(255,255,255,0.85)"/>
+                    <!-- Visor Reflection -->
+                    <path d="M38 38C42 34 58 34 62 38C64 42 60 48 50 48C40 48 36 42 38 38Z" fill="#0f172a"/>
+                    <path d="M42 38C44 36 50 36 52 38" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="68" cy="28" r="3" fill="#fbbf24"/>
+                    <defs>
+                      <linearGradient id="avatarGradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#4f46e5"/>
+                        <stop offset="0.5" stop-color="#7c3aed"/>
+                        <stop offset="1" stop-color="#db2777"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Profile Details -->
+              <div class="card-profile-info">
+                <h3 class="card-name">Bellatrix Abdul Rahman</h3>
+                <p class="card-role">Network Engineer & IT Systems Specialist</p>
+              </div>
+
+              <!-- Mini Stats Grid inside 3D Card -->
+              <div class="card-stats-grid">
+                <div class="mini-stat-item">
+                  <div class="mini-stat-num">150+</div>
+                  <div class="mini-stat-lbl">Instalasi & Servis PC</div>
+                </div>
+                <div class="mini-stat-item">
+                  <div class="mini-stat-num">85+</div>
+                  <div class="mini-stat-lbl">Router & AP Setup</div>
+                </div>
+                <div class="mini-stat-item">
+                  <div class="mini-stat-num">99.9%</div>
+                  <div class="mini-stat-lbl">Tingkat Kepuasan</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT ME SECTION (TENTANG SAYA)
+         ========================================================================== -->
+    <section id="tentang" class="about-section">
+      <div class="container">
+        
+        <div class="section-header smooth-reveal">
+          <span class="section-tag"><i class="fas fa-compass"></i> Mengenal Lebih Dekat</span>
+          <h2 class="section-title">Eksplorasi Jaringan, Sistem & Dimensi Digital</h2>
+          <p class="section-subtitle">Mendedikasikan keahlian praktis dan energi kreatif untuk menghadirkan koneksi jaringan andal, sistem komputer optimal, dan web modern.</p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Left: Narrative & Principles -->
+          <div class="about-quote-box liquid-card smooth-reveal-left">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="about-bio-text">
+              Saya adalah <strong>Bellatrix Abdul Rahman</strong>, seorang profesional di bidang infrastruktur jaringan, teknisi sistem komputer, dan pengembang web. Saya terbiasa menangani konfigurasi router <strong>MikroTik</strong>, pemasangan & optimasi <strong>Akses Poin (Wi-Fi)</strong>, instalasi ulang & perawatan sistem <strong>Windows</strong>, hingga pengelolaan <strong>Hosting Online & VPS</strong>.
+            </p>
+            <p class="about-bio-text">
+              Bagi saya, keandalan teknis dan keindahan visual harus berjalan seiring. Dari topologi perkabelan jaringan yang rapi, bandwidth yang terbagi adil tanpa lag, kestabilan OS Windows, hingga tampilan website yang futuristik dengan estetika <em>Liquid Glass</em>.
+            </p>
+
+            <div class="about-features-list">
+              <div class="feature-pill">
+                <i class="fas fa-check-circle"></i>
+                <span>Konfigurasi MikroTik & Hotspot</span>
+              </div>
+              <div class="feature-pill">
+                <i class="fas fa-check-circle"></i>
+                <span>Setting Akses Poin & Mesh Wi-Fi</span>
+              </div>
+              <div class="feature-pill">
+                <i class="fas fa-check-circle"></i>
+                <span>Install Ulang Windows & Servis PC</span>
+              </div>
+              <div class="feature-pill">
+                <i class="fas fa-check-circle"></i>
+                <span>Web Hosting, Domain & VPS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Dynamic Metrics -->
+          <div class="stats-cards-grid smooth-reveal-right">
+            
+            <div class="stat-big-card liquid-card">
+              <div class="stat-icon-wrapper">
+                <i class="fas fa-laptop-medical"></i>
+              </div>
+              <div class="stat-number text-gradient" data-target="150" data-suffix="+">0</div>
+              <div class="stat-label">Komputer/Laptop Selesai Diservis & Diinstall</div>
+            </div>
+
+            <div class="stat-big-card liquid-card">
+              <div class="stat-icon-wrapper" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: var(--color-cyan);">
+                <i class="fas fa-wifi"></i>
+              </div>
+              <div class="stat-number text-gradient" data-target="85" data-suffix="+">0</div>
+              <div class="stat-label">Akses Poin & Router MikroTik Dikonfigurasi</div>
+            </div>
+
+            <div class="stat-big-card liquid-card">
+              <div class="stat-icon-wrapper" style="background: rgba(236, 72, 153, 0.15); border-color: rgba(236, 72, 153, 0.3); color: var(--color-tertiary);">
+                <i class="fas fa-cloud-arrow-up"></i>
+              </div>
+              <div class="stat-number text-gradient" data-target="50" data-suffix="+">0</div>
+              <div class="stat-label">Domain, Web Hosting & Cloud Dikelola</div>
+            </div>
+
+            <div class="stat-big-card liquid-card">
+              <div class="stat-icon-wrapper" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3); color: var(--color-emerald);">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <div class="stat-number text-gradient" data-target="100" data-suffix="%">0</div>
+              <div class="stat-label">Komitmen Uptime & Garansi Kepuasan</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SKILLS SECTION (KEAHLIAN LENGKAP)
+         ========================================================================== -->
+    <section id="keahlian" class="skills-section">
+      <div class="container">
+        
+        <div class="section-header smooth-reveal">
+          <span class="section-tag"><i class="fas fa-toolbox"></i> Keahlian & Spesialisasi</span>
+          <h2 class="section-title">Konstelasi Kemampuan IT & Jaringan Komprehensif</h2>
+          <p class="section-subtitle">Keahlian teknis mendalam mulai dari konfigurasi MikroTik, Akses Poin, instalasi Windows & hardware, web hosting online, hingga pembuatan web modern.</p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Skill Card 1: MikroTik RouterOS -->
+          <div class="skill-category-card liquid-card smooth-reveal delay-1">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon" style="background: linear-gradient(135deg, #0284c7, #2563eb);">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">MikroTik RouterOS</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Routing, Bandwidth & Hotspot</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Setting Dasar & IP Routing MikroTik</span>
+                  <span style="color: var(--color-cyan);">98%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="98%"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Bandwidth Management (Simple Queue & Queue Tree)</span>
+                  <span style="color: var(--color-cyan);">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="95%"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Hotspot Gateway, Voucher & Mikhmon</span>
+                  <span style="color: var(--color-cyan);">96%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="96%"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Firewall Filter, NAT, Mangle & VPN Tunnel</span>
+                  <span style="color: var(--color-cyan);">92%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="92%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-badges-cloud">
+              <span class="tech-tag">Winbox</span>
+              <span class="tech-tag">RouterBOARD</span>
+              <span class="tech-tag">Mikhmon</span>
+              <span class="tech-tag">Failover Dual ISP</span>
+              <span class="tech-tag">WireGuard / L2TP</span>
+              <span class="tech-tag">Port Forwarding</span>
+            </div>
+          </div>
+
+          <!-- Skill Card 2: Akses Poin & Wireless Network -->
+          <div class="skill-category-card liquid-card smooth-reveal delay-2">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon" style="background: linear-gradient(135deg, #38bdf8, #6366f1);">
+                <i class="fas fa-wifi"></i>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Akses Poin & Wi-Fi</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Wireless Indoor/Outdoor & Roaming</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Setting Access Point (UniFi, Omada, Ruijie, TP-Link)</span>
+                  <span style="color: var(--color-cyan);">96%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="96%"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Optimasi Kanal Frekuensi 2.4 GHz & 5.0 GHz</span>
+                  <span style="color: var(--color-cyan);">94%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="94%"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Multi-SSID, Isolation & VLAN Mapping</span>
+                  <span style="color: var(--color-cyan);">93%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="93%"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Mesh Wi-Fi & Wireless Point-to-Point (PTP)</span>
+                  <span style="color: var(--color-cyan);">89%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="89%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-badges-cloud">
+              <span class="tech-tag">UniFi Controller</span>
+              <span class="tech-tag">Omada SDN</span>
+              <span class="tech-tag">Reyee Cloud</span>
+              <span class="tech-tag">Roaming 802.11k/v/r</span>
+              <span class="tech-tag">AP Outdoor</span>
+              <span class="tech-tag">PoE Setup</span>
+            </div>
+          </div>
+
+          <!-- Skill Card 3: Install Ulang Windows & Teknisi PC -->
+          <div class="skill-category-card liquid-card smooth-reveal delay-3">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8);">
+                <i class="fab fa-windows"></i>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Install Ulang & Teknisi PC</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Windows 10/11, Hardware & Servis</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Install Ulang Windows 10 & 11 Pro (UEFI / GPT)</span>
+                  <span style="color: var(--color-secondary);">99%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="99%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Optimasi Kinerja OS, Update Driver & Debloat</span>
+                  <span style="color: var(--color-secondary);">96%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="96%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Troubleshooting Hardware, Layar Biru (BSOD) & Freeze</span>
+                  <span style="color: var(--color-secondary);">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="95%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Ganti Pasta Thermal, Pembersihan Debu & Upgrade SSD/RAM</span>
+                  <span style="color: var(--color-secondary);">94%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="94%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-badges-cloud">
+              <span class="tech-tag">Windows 11</span>
+              <span class="tech-tag">Rufus / Bootable</span>
+              <span class="tech-tag">DriverPack / SDI</span>
+              <span class="tech-tag">Thermal Paste</span>
+              <span class="tech-tag">SSD NVMe M.2</span>
+              <span class="tech-tag">Data Backup</span>
+            </div>
+          </div>
+
+          <!-- Skill Card 4: Web Hosting, Domain & VPS -->
+          <div class="skill-category-card liquid-card smooth-reveal delay-1">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+                <i class="fas fa-server"></i>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Hosting Online & VPS</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">cPanel, WHM, Cloudflare & Linux</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Pengelolaan Web Hosting cPanel & WHM</span>
+                  <span style="color: var(--color-amber);">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="95%" style="background: var(--gradient-gold);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Pengaturan Domain DNS, Nameserver & Cloudflare</span>
+                  <span style="color: var(--color-amber);">96%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="96%" style="background: var(--gradient-gold);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Penerbitan Sertifikat Keamanan SSL/TLS</span>
+                  <span style="color: var(--color-amber);">97%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="97%" style="background: var(--gradient-gold);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Setup VPS Linux (Ubuntu/Debian) & Database MySQL</span>
+                  <span style="color: var(--color-amber);">90%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="90%" style="background: var(--gradient-gold);"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-badges-cloud">
+              <span class="tech-tag">cPanel</span>
+              <span class="tech-tag">WHM</span>
+              <span class="tech-tag">Cloudflare</span>
+              <span class="tech-tag">Let's Encrypt</span>
+              <span class="tech-tag">FileZilla FTP</span>
+              <span class="tech-tag">Ubuntu VPS</span>
+              <span class="tech-tag">phpMyAdmin</span>
+            </div>
+          </div>
+
+          <!-- Skill Card 5: Perkabelan Jaringan & Switch LAN -->
+          <div class="skill-category-card liquid-card smooth-reveal delay-2">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                <i class="fas fa-ethernet"></i>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Infrastruktur Kabel LAN</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Crimping RJ45, Switch & Topologi</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Crimping RJ45 UTP Cat5e / Cat6 (Straight & Cross)</span>
+                  <span style="color: var(--color-emerald);">98%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="98%" style="background: linear-gradient(90deg, #10b981, #34d399);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Switch Management, VLAN Trunking & Port Security</span>
+                  <span style="color: var(--color-emerald);">92%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="92%" style="background: linear-gradient(90deg, #10b981, #34d399);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Testing Latensi, Packet Loss & LAN Cable Tester</span>
+                  <span style="color: var(--color-emerald);">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="95%" style="background: linear-gradient(90deg, #10b981, #34d399);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Penataan Kabel Rak Server & Patch Panel Rapi</span>
+                  <span style="color: var(--color-emerald);">93%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="93%" style="background: linear-gradient(90deg, #10b981, #34d399);"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-badges-cloud">
+              <span class="tech-tag">Cat6 UTP</span>
+              <span class="tech-tag">Crimping Tool</span>
+              <span class="tech-tag">Managed Switch</span>
+              <span class="tech-tag">LAN Tester</span>
+              <span class="tech-tag">Patch Cord</span>
+              <span class="tech-tag">Topologi Star</span>
+            </div>
+          </div>
+
+          <!-- Skill Card 6: Pengembangan Web & Liquid Glass UI -->
+          <div class="skill-category-card liquid-card smooth-reveal delay-3">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
+                <i class="fas fa-code"></i>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Web Modern & Liquid UI</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Frontend, Animasi & Antarmuka</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>HTML5 Semantik & Modern CSS3 Glassmorphism</span>
+                  <span style="color: var(--color-tertiary);">96%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="96%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>JavaScript Interaktif & HTML5 Canvas 60 FPS</span>
+                  <span style="color: var(--color-tertiary);">92%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="92%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Desain Responsif (Smartphone, Tablet, Desktop)</span>
+                  <span style="color: var(--color-tertiary);">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="95%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Optimasi Kecepatan Web (Performance & SEO)</span>
+                  <span style="color: var(--color-tertiary);">91%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="91%" style="background: var(--gradient-cosmic);"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-badges-cloud">
+              <span class="tech-tag">HTML5/CSS3</span>
+              <span class="tech-tag">Liquid Glass</span>
+              <span class="tech-tag">Vanilla JS</span>
+              <span class="tech-tag">Canvas Particles</span>
+              <span class="tech-tag">Git / GitHub</span>
+              <span class="tech-tag">Web Performance</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROJECTS SECTION (KARYA & PORTOFOLIO)
+         ========================================================================== -->
+    <section id="portofolio" class="projects-section">
+      <div class="container">
+        
+        <div class="section-header smooth-reveal">
+          <span class="section-tag"><i class="fas fa-star"></i> Showcase Karya Terpilih</span>
+          <h2 class="section-title">Portofolio Karya Kosmik Bellatrix</h2>
+          <p class="section-subtitle">Koleksi proyek inovatif yang telah dikembangkan dengan sentuhan teknologi modern dan desain interaktif.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="project-filters smooth-reveal delay-1">
+          <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+          <button class="filter-btn" data-filter="webapp">Web Application</button>
+          <button class="filter-btn" data-filter="mobile">Mobile & UI</button>
+          <button class="filter-btn" data-filter="creative">Creative & 3D</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid smooth-reveal delay-2">
+          
+          <!-- Project 1 -->
+          <div class="project-card liquid-card" data-category="webapp">
+            <div class="project-thumb-box">
+              <svg width="100%" height="100%" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="240" fill="#0b0f19"/>
+                <circle cx="200" cy="120" r="80" fill="url(#pGrad1)" opacity="0.4"/>
+                <rect x="50" y="40" width="300" height="160" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                <circle cx="80" cy="65" r="5" fill="#ef4444"/>
+                <circle cx="95" cy="65" r="5" fill="#f59e0b"/>
+                <circle cx="110" cy="65" r="5" fill="#10b981"/>
+                <rect x="80" y="90" width="120" height="12" rx="6" fill="#38bdf8"/>
+                <rect x="80" y="115" width="240" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+                <rect x="80" y="135" width="180" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+                <rect x="80" y="160" width="80" height="24" rx="12" fill="url(#pGrad1)"/>
+                <defs>
+                  <linearGradient id="pGrad1" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#6366f1"/>
+                    <stop offset="1" stop-color="#a855f7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="project-overlay-links">
+                <a href="#kontak" class="liquid-btn liquid-btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                  <i class="fas fa-external-link-alt"></i> Pratinjau
+                </a>
+              </div>
+            </div>
+            <div class="project-info-body">
+              <span class="project-cat-badge">Web Application</span>
+              <h3 class="project-title">Aetheria Cloud OS</h3>
+              <p class="project-desc">Sistem antarmuka web desktop futuristik berbasis browser dengan fitur multi-windowing, widget cuaca kosmik, dan integrasi cloud storage.</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Tailwind</span>
+                <span class="tech-tag">Canvas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card liquid-card" data-category="webapp">
+            <div class="project-thumb-box">
+              <svg width="100%" height="100%" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="240" fill="#0e1322"/>
+                <circle cx="280" cy="90" r="90" fill="url(#pGrad2)" opacity="0.35"/>
+                <rect x="60" y="50" width="280" height="140" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)"/>
+                <path d="M90 140L140 100L180 125L230 75L310 120" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="230" cy="75" r="7" fill="#fbbf24"/>
+                <defs>
+                  <linearGradient id="pGrad2" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0284c7"/>
+                    <stop offset="1" stop-color="#34d399"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="project-overlay-links">
+                <a href="#kontak" class="liquid-btn liquid-btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                  <i class="fas fa-external-link-alt"></i> Pratinjau
+                </a>
+              </div>
+            </div>
+            <div class="project-info-body">
+              <span class="project-cat-badge">Fintech App</span>
+              <h3 class="project-title">Nebula Pay & Wallet</h3>
+              <p class="project-desc">Aplikasi dompet digital dengan efek liquid glass cards, visualisasi grafik pengeluaran real-time, dan enkripsi transfer mutakhir.</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Charts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card liquid-card" data-category="creative">
+            <div class="project-thumb-box">
+              <svg width="100%" height="100%" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="240" fill="#0d091a"/>
+                <circle cx="200" cy="120" r="70" fill="url(#pGrad3)" opacity="0.6"/>
+                <circle cx="200" cy="120" r="100" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="8 6"/>
+                <polygon points="200,60 250,150 150,150" stroke="#ffffff" stroke-width="2" fill="none"/>
+                <defs>
+                  <linearGradient id="pGrad3" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#ec4899"/>
+                    <stop offset="1" stop-color="#8b5cf6"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="project-overlay-links">
+                <a href="#kontak" class="liquid-btn liquid-btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                  <i class="fas fa-external-link-alt"></i> Pratinjau
+                </a>
+              </div>
+            </div>
+            <div class="project-info-body">
+              <span class="project-cat-badge">Creative & 3D</span>
+              <h3 class="project-title">Orion Generative Canvas</h3>
+              <p class="project-desc">Eksplorasi grafika interaktif berbasis Canvas dan WebGL yang memvisualisasikan partikel galaksi, medan gravitasi, dan gelombang suara.</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">WebGL</span>
+                <span class="tech-tag">Canvas API</span>
+                <span class="tech-tag">Three.js</span>
+                <span class="tech-tag">Audio API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card liquid-card" data-category="mobile">
+            <div class="project-thumb-box">
+              <svg width="100%" height="100%" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="240" fill="#08101e"/>
+                <rect x="145" y="25" width="110" height="190" rx="20" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.3)"/>
+                <rect x="180" y="35" width="40" height="4" rx="2" fill="rgba(255,255,255,0.5)"/>
+                <circle cx="200" cy="90" r="24" fill="url(#pGrad4)"/>
+                <rect x="160" y="130" width="80" height="8" rx="4" fill="#38bdf8"/>
+                <rect x="160" y="150" width="60" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                <defs>
+                  <linearGradient id="pGrad4" x1="0" y1="0" x2="200" y2="150" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#38bdf8"/>
+                    <stop offset="1" stop-color="#6366f1"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="project-overlay-links">
+                <a href="#kontak" class="liquid-btn liquid-btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                  <i class="fas fa-external-link-alt"></i> Pratinjau
+                </a>
+              </div>
+            </div>
+            <div class="project-info-body">
+              <span class="project-cat-badge">Mobile UI Design</span>
+              <h3 class="project-title">Nova Mobile Commerce</h3>
+              <p class="project-desc">Konsep aplikasi belanja mobile bernuansa kosmik dengan transisi gesture swipe, filter produk pintar, dan checkout satu sentuhan.</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">Glassmorphism</span>
+                <span class="tech-tag">iOS/Android</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card liquid-card" data-category="webapp">
+            <div class="project-thumb-box">
+              <svg width="100%" height="100%" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="240" fill="#0f111a"/>
+                <circle cx="120" cy="120" r="50" fill="#a855f7" opacity="0.3"/>
+                <rect x="70" y="60" width="70" height="120" rx="10" fill="rgba(255,255,255,0.06)"/>
+                <rect x="160" y="60" width="170" height="50" rx="10" fill="rgba(255,255,255,0.06)"/>
+                <rect x="160" y="125" width="170" height="55" rx="10" fill="rgba(255,255,255,0.06)"/>
+              </svg>
+              <div class="project-overlay-links">
+                <a href="#kontak" class="liquid-btn liquid-btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                  <i class="fas fa-external-link-alt"></i> Pratinjau
+                </a>
+              </div>
+            </div>
+            <div class="project-info-body">
+              <span class="project-cat-badge">Web Application</span>
+              <h3 class="project-title">CosmoPulse Live Analytics</h3>
+              <p class="project-desc">Platform dashboard metrik real-time untuk memantau performa sistem, latency server, dan aktivitas pengunjung secara interaktif.</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card liquid-card" data-category="creative">
+            <div class="project-thumb-box">
+              <svg width="100%" height="100%" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="240" fill="#0b0e1b"/>
+                <circle cx="200" cy="120" r="60" fill="url(#pGrad6)" opacity="0.5"/>
+                <rect x="100" y="80" width="60" height="60" rx="14" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)"/>
+                <rect x="180" y="80" width="60" height="60" rx="30" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)"/>
+                <rect x="260" y="80" width="60" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)"/>
+                <defs>
+                  <linearGradient id="pGrad6" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#38bdf8"/>
+                    <stop offset="1" stop-color="#ec4899"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="project-overlay-links">
+                <a href="#kontak" class="liquid-btn liquid-btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                  <i class="fas fa-external-link-alt"></i> Pratinjau
+                </a>
+              </div>
+            </div>
+            <div class="project-info-body">
+              <span class="project-cat-badge">UI Library</span>
+              <h3 class="project-title">Starlight Liquid Glass Kit</h3>
+              <p class="project-desc">Kumpulan pustaka komponen UI kaca cair open-source dengan efek kilau specular, dukungan tema adaptif, dan animasi fluid.</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">CSS Library</span>
+                <span class="tech-tag">Web Components</span>
+                <span class="tech-tag">NPM</span>
+                <span class="tech-tag">Documentation</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         EXPERIENCE TIMELINE (LINIMASA PENGALAMAN)
+         ========================================================================== -->
+    <section id="pengalaman" class="experience-section">
+      <div class="container">
+        
+        <div class="section-header smooth-reveal">
+          <span class="section-tag"><i class="fas fa-history"></i> Linimasa Karier</span>
+          <h2 class="section-title">Perjalanan Profesional IT & Jaringan</h2>
+          <p class="section-subtitle">Jejak langkah dan pengalaman nyata dalam menangani infrastruktur jaringan, teknisi komputer, hosting, dan pengembangan web.</p>
+        </div>
+
+        <div class="timeline-track-container">
+          
+          <!-- Item 1 -->
+          <div class="timeline-item smooth-reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card liquid-card">
+              <div class="timeline-period">2024 - Sekarang</div>
+              <h3 class="timeline-role">Lead Network & IT Infrastructure Specialist</h3>
+              <div class="timeline-company">Galactic Digital Network</div>
+              <p class="timeline-desc">Menangani perencanaan topologi jaringan skala menengah, konfigurasi router MikroTik terpusat, manajemen bandwidth, instalasi akses poin terdistribusi, serta deployment server cloud & hosting.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item smooth-reveal delay-1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card liquid-card">
+              <div class="timeline-period">2022 - 2024</div>
+              <h3 class="timeline-role">IT Support & Network Engineer</h3>
+              <div class="timeline-company">Stellar Computer & IT Solutions</div>
+              <p class="timeline-desc">Melakukan instalasi ulang sistem operasi Windows 10/11 Pro, perakitan dan troubleshooting perangkat keras/lunak PC & laptop, setup voucher hotspot MikroTik & Mikhmon, serta instalasi kabel LAN UTP Cat6.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item smooth-reveal delay-2">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card liquid-card">
+              <div class="timeline-period">2020 - 2022</div>
+              <h3 class="timeline-role">Junior Web Administrator & IT Technician</h3>
+              <div class="timeline-company">Aurora Tech Services</div>
+              <p class="timeline-desc">Mengelola hosting cPanel, konfigurasi DNS domain & instalasi sertifikat SSL, pemeliharaan sistem komputer kantor, serta perancangan website responsif berkinerja tinggi.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline-item smooth-reveal delay-3">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card liquid-card">
+              <div class="timeline-period">2017 - 2020</div>
+              <h3 class="timeline-role">Pendidikan Teknik Komputer, Jaringan & Perangkat Lunak</h3>
+              <div class="timeline-company">Akademi Teknologi Informasi</div>
+              <p class="timeline-desc">Mendalami arsitektur komputer, subnetting IPv4/IPv6, protokol routing, konfigurasi sistem operasi, dan teknologi antarmuka web modern.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT SECTION (HUBUNGI SAYA)
+         ========================================================================== -->
+    <section id="kontak" class="contact-section">
+      <div class="container">
+        
+        <div class="section-header smooth-reveal">
+          <span class="section-tag"><i class="fas fa-paper-plane"></i> Memulai Kerja Sama</span>
+          <h2 class="section-title">Konsultasi Jaringan, Servis PC & Web</h2>
+          <p class="section-subtitle">Butuh bantuan setting MikroTik, pemasangan akses poin Wi-Fi, instalasi ulang Windows, hosting website, atau proyek web modern? Hubungi saya kapan saja!</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Direct Info -->
+          <div class="contact-info-col smooth-reveal-left">
+            
+            <a href="mailto:bellatrixabdulr@gmail.com" class="contact-quick-card liquid-card">
+              <div class="contact-icon-box">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <div class="contact-lbl">Email Resmi</div>
+                <div class="contact-val">Contact US Email</div>
+              </div>
+            </a>
+
+            <a href="https://wa.me/6283157655023" target="_blank" rel="noopener noreferrer" class="contact-quick-card liquid-card">
+              <div class="contact-icon-box" style="background: linear-gradient(135deg, #10b981, #059669);">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div>
+                <div class="contact-lbl">WhatsApp / Telepon</div>
+                <div class="contact-val">WhatsApp-Me</div>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-quick-card liquid-card">
+              <div class="contact-icon-box" style="background: linear-gradient(135deg, #0284c7, #2563eb);">
+                <i class="fab fa-linkedin-in"></i>
+              </div>
+              <div>
+                <div class="contact-lbl">Jaringan Profesional</div>
+                <div class="contact-val">linkedin.com/in/bellatrix-rahman</div>
+              </div>
+            </a>
+
+            <a href="https://github.com/bellatrixabdulr-droid" target="_blank" rel="noopener noreferrer" class="contact-quick-card liquid-card">
+              <div class="contact-icon-box" style="background: linear-gradient(135deg, #334155, #0f172a);">
+                <i class="fab fa-github"></i>
+              </div>
+              <div>
+                <div class="contact-lbl">Repositori Kode</div>
+                <div class="contact-val">Github Me</div>
+              </div>
+            </a>
+
+            <div class="contact-quick-card liquid-card" style="cursor: default;">
+              <div class="contact-icon-box" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <div class="contact-lbl">Lokasi & Zona Waktu</div>
+                <div class="contact-val">kendal, Indonesia (WIB / GMT+7) • Siap Remote</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Liquid Glass Contact Form -->
+          <div class="contact-form-card liquid-card smooth-reveal-right">
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Nama Lengkap</label>
+                <input type="text" id="contact-name" class="liquid-input" placeholder="Masukkan nama Anda..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Alamat Email</label>
+                <input type="email" id="contact-email" class="liquid-input" placeholder="bellatrixabdulr@gmail.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subjek / Topik</label>
+                <input type="text" id="contact-subject" class="liquid-input" placeholder="Misal: Diskusi Proyek Website Baru">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Pesan Anda</label>
+                <textarea id="contact-message" class="liquid-input" rows="5" placeholder="Tuliskan detail ide atau pertanyaan Anda di sini..." required style="resize: vertical;"></textarea>
+              </div>
+
+              <button type="submit" class="liquid-btn liquid-btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;">
+                <i class="fas fa-paper-plane"></i>
+                <span>Kirimkan Pesan Kosmik</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#home" class="footer-brand">
+          <div class="brand-icon-orb">
+            <i class="fas fa-atom"></i>
+          </div>
+          <span>Bellatrix Abdul Rahman</span>
+        </a>
+
+        <div class="footer-social-links">
+          <a href="https://github.com/bellatrixabdulr-droid" target="_blank" rel="noopener noreferrer" class="liquid-btn liquid-btn-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="liquid-btn liquid-btn-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="liquid-btn liquid-btn-icon" aria-label="Twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/abd4l_r4hm4n?stkn=MW9vbGs5N3l3emlxMA%3D%3D" target="_blank" rel="noopener noreferrer" class="liquid-btn liquid-btn-icon" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:bellatrix.abdulrahman@example.com" class="liquid-btn liquid-btn-icon" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Bellatrix Abdul Rahman. Hak Cipta Dilindungi Undang-Undang.</p>
+        <p>Dirancang & dibangun dengan sentuhan Liquid Glass & Debu Bintang Galaksi ✨</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Kembali ke Atas" title="Kembali ke Bagian Atas">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Global Cosmic Toast Container -->
+  <div id="cosmic-toast" class="cosmic-toast" role="alert" aria-live="assertive">
+    <i class="fas fa-meteor"></i>
+    <span>Notifikasi Kosmik</span>
+  </div>
+
+  <!-- Scripts (Diubah ke luar / sejajar index.html) -->
+  <script src="galaxy.js"></script>
+  <script src="clock.js"></script>
+  <script src="slider-reveal.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
