@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Alena, Cintaku ❤️</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins & Dancing Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Canvas Confetti for Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 40%, #f472b6 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .font-romantic {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Floating Hearts Background Animation */
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.85;
+            will-change: transform, opacity;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.5) rotate(0deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Modern Glassmorphism Styling */
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fbcfe8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f472b6;
+            border-radius: 10px;
+        }
+
+        /* Pulsing Heartbeat Effect */
+        .pulse-glow {
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(244, 114, 182, 0.4);
+            }
+            100% {
+                box-shadow: 0 0 32px rgba(244, 114, 182, 0.85);
+            }
+        }
+
+        .bounce-soft {
+            animation: bounceSoft 2.5s infinite;
+        }
+
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Card Expansion Animation */
+        .expanded-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .expanded-content.active {
+            max-height: 300px;
+            opacity: 1;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body class="text-slate-800 relative pb-16">
+
+    <!-- Container for floating heart particles -->
+    <div id="heart-container"></div>
+
+    <div id="welcome-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-pink-950/50 backdrop-blur-md transition-opacity duration-500">
+        <div class="glass max-w-md w-full p-8 rounded-3xl text-center shadow-2xl relative overflow-hidden transform transition-all duration-300">
+            <div class="w-20 h-20 mx-auto mb-4 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center text-4xl shadow-inner bounce-soft">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h1 class="text-3xl font-bold font-romantic text-pink-600 mb-2">Surat Spesial Buat Alena 💌</h1>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                Halo Alena manis! Ada pesan romantis dan kenangan indah yang udah aku kumpulin khusus buat kamu. Buka sekarang yuk?
+            </p>
+            <button id="open-btn" onclick="startExperience()" class="w-full py-3.5 px-6 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-pink-400/50 transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                <span>Buka Surat</span>
+                <i class="fa-solid fa-heart text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <header class="pt-12 pb-6 px-4 text-center max-w-2xl mx-auto">
+        <span class="px-4 py-1.5 bg-pink-200/80 text-pink-700 text-xs font-semibold rounded-full uppercase tracking-wider shadow-sm border border-pink-300/50">
+            My Forever Love: Alena 💕
+        </span>
+        <h1 class="text-4xl md:text-5xl font-extrabold font-romantic text-pink-600 mt-4 mb-3 tracking-wide">
+            Terima Kasih Sudah Ada, Alena
+        </h1>
+        <p class="text-slate-600 text-sm md:text-base max-w-md mx-auto">
+            Setiap detik sama Alena selalu jadi momen tercantik dalam hidup aku. Website sederhana ini khusus kuciptakan buat kamu!
+        </p>
+    </header>
+
+    <section class="max-w-xl mx-auto px-4 mb-10">
+        <div class="glass rounded-3xl p-6 md:p-8 shadow-xl text-center border border-white/80 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-28 h-28 bg-pink-300/30 rounded-full blur-xl pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-28 h-28 bg-rose-300/30 rounded-full blur-xl pointer-events-none"></div>
+
+            <h2 class="text-lg font-semibold text-slate-700 mb-4 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-clock text-pink-500 animate-pulse"></i> KITA SUDAH BERSAMA SELAMA:
+            </h2>
+            
+            <div class="grid grid-cols-4 gap-2 md:gap-4">
+                <div class="bg-white/90 p-3 md:p-4 rounded-2xl shadow-sm border border-pink-100">
+                    <span id="counter-days" class="block text-2xl md:text-3xl font-extrabold text-pink-600">00</span>
+                    <span class="text-xs text-slate-500 font-medium">Hari</span>
+                </div>
+                <div class="bg-white/90 p-3 md:p-4 rounded-2xl shadow-sm border border-pink-100">
+                    <span id="counter-hours" class="block text-2xl md:text-3xl font-extrabold text-pink-600">00</span>
+                    <span class="text-xs text-slate-500 font-medium">Jam</span>
+                </div>
+                <div class="bg-white/90 p-3 md:p-4 rounded-2xl shadow-sm border border-pink-100">
+                    <span id="counter-minutes" class="block text-2xl md:text-3xl font-extrabold text-pink-600">00</span>
+                    <span class="text-xs text-slate-500 font-medium">Menit</span>
+                </div>
+                <div class="bg-white/90 p-3 md:p-4 rounded-2xl shadow-sm border border-pink-100">
+                    <span id="counter-seconds" class="block text-2xl md:text-3xl font-extrabold text-pink-600">00</span>
+                    <span class="text-xs text-slate-500 font-medium">Detik</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 italic font-medium">Sejak Hari Spesial Kita: <span class="text-pink-600 font-semibold">10 Agustus 2026</span> 💖</p>
+        </div>
+    </section>
+
+    <section class="max-w-xl mx-auto px-4 mb-12">
+        <div class="glass rounded-3xl p-6 md:p-8 shadow-xl text-center relative border border-white/80 min-h-[260px] flex flex-col justify-center">
+            
+            <div id="question-box">
+                <div class="w-16 h-16 mx-auto mb-3 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center text-3xl shadow-inner">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">Pertanyaan Penting! 🧐</h3>
+                <p class="text-slate-600 text-sm mb-8">Alena, mau gak kamu jadi pacar aku selamanya?</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 relative min-h-[70px]" id="button-wrapper">
+                    <!-- Mau Button -->
+                    <button onclick="handleYesClick()" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-pink-400/50 transform active:scale-95 transition-all text-base z-20">
+                        Mau Banget! ❤️
+                    </button>
+                    
+                    <!-- Evasive Gak Button -->
+                    <button id="no-btn" 
+                            onmouseover="moveNoButton()" 
+                            onclick="moveNoButton()" 
+                            ontouchstart="moveNoButton()" 
+                            class="w-full sm:w-auto px-8 py-3.5 bg-slate-200/90 hover:bg-slate-300 text-slate-600 font-bold rounded-2xl transition-all duration-200 text-base z-10">
+                        Gak 😜
+                    </button>
+                </div>
+            </div>
+
+            <!-- Success Box (Shows after clicking "Mau") -->
+            <div id="success-box" class="hidden py-4 animate-fade-in">
+                <div class="text-5xl mb-3">🥰🎉</div>
+                <h3 class="text-3xl font-bold font-romantic text-pink-600 mb-2">Yaaaaay! Makasih Alena Sayang!</h3>
+                <p class="text-slate-600 text-sm leading-relaxed max-w-md mx-auto">
+                    Tuh kan, emang Alena gak bakal bisa milih tombol enggak 😜❤️ I love you so much, Alena!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 mb-12">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold font-romantic text-pink-600">Alasan Kenapa Aku Sayang Alena ✨</h2>
+            <p class="text-xs text-slate-500">Klik kartu di bawah ini untuk membuka alasannya!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div onclick="toggleCard(this)" class="glass p-6 rounded-3xl shadow-md border border-white/80 cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300 relative group">
+                <div class="w-12 h-12 bg-pink-100 text-pink-500 rounded-2xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-face-smile-beam"></i>
+                </div>
+                <h3 class="font-bold text-lg text-slate-800 mb-1">Senyuman Manis Alena</h3>
+                <div class="expanded-content">
+                    <p class="text-slate-600 text-sm leading-relaxed pt-2 border-t border-pink-100">
+                        Setiap kali lihat Alena senyum, rasanya semua rasa capek dan pusing langsung hilang. Senyum kamu itu kebahagiaanku!
+                    </p>
+                </div>
+                <div class="mt-4 text-xs font-semibold text-pink-500 flex items-center gap-1 click-hint">
+                    <span class="hint-text">Klik buat baca</span> <i class="fa-solid fa-chevron-right text-[10px] transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div onclick="toggleCard(this)" class="glass p-6 rounded-3xl shadow-md border border-white/80 cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300 relative group">
+                <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-2xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-hands-holding-heart"></i>
+                </div>
+                <h3 class="font-bold text-lg text-slate-800 mb-1">Kebaikan Hati Alena</h3>
+                <div class="expanded-content">
+                    <p class="text-slate-600 text-sm leading-relaxed pt-2 border-t border-pink-100">
+                        Alena selalu sabar, perhatian, dan mengerti aku dalam kondisi apapun. Makasih ya udah selalu lembut sama aku.
+                    </p>
+                </div>
+                <div class="mt-4 text-xs font-semibold text-pink-500 flex items-center gap-1 click-hint">
+                    <span class="hint-text">Klik buat baca</span> <i class="fa-solid fa-chevron-right text-[10px] transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div onclick="toggleCard(this)" class="glass p-6 rounded-3xl shadow-md border border-white/80 cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300 relative group">
+                <div class="w-12 h-12 bg-purple-100 text-purple-500 rounded-2xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="font-bold text-lg text-slate-800 mb-1">Alena yang Unik</h3>
+                <div class="expanded-content">
+                    <p class="text-slate-600 text-sm leading-relaxed pt-2 border-t border-pink-100">
+                        Tingkah lucu Alena, kebiasaan manis, dan ketawa kamu bikin aku selalu makin jatuh cinta setiap harinya.
+                    </p>
+                </div>
+                <div class="mt-4 text-xs font-semibold text-pink-500 flex items-center gap-1 click-hint">
+                    <span class="hint-text">Klik buat baca</span> <i class="fa-solid fa-chevron-right text-[10px] transition-transform"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 mb-14">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold font-romantic text-pink-600">Galeri Foto Cantik Alena 📸</h2>
+            <p class="text-xs text-slate-500">Kumpulan momen manis Alena yang paling indah</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            
+            <!-- FOTO ALENA 1 -->
+            <!-- PETUNJUK: Ganti link src="..." di bawah dengan link foto Alena kamu sendiri! -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md aspect-square bg-slate-200 border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" 
+                     alt="Foto Alena 1" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <p class="text-white text-xs font-medium">Alena Cantik Banget 💕</p>
+                </div>
+            </div>
+
+            <!-- FOTO ALENA 2 -->
+            <!-- PETUNJUK: Ganti link src="..." di bawah ini -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md aspect-square bg-slate-200 border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" 
+                     alt="Foto Alena 2" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <p class="text-white text-xs font-medium">Senyuman Favoritku 🌻</p>
+                </div>
+            </div>
+
+            <!-- FOTO ALENA 3 -->
+            <!-- PETUNJUK: Ganti link src="..." di bawah ini -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md aspect-square bg-slate-200 border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" 
+                     alt="Foto Alena 3" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <p class="text-white text-xs font-medium">Momen Lucu Alena 🌅</p>
+                </div>
+            </div>
+
+            <!-- FOTO ALENA 4 -->
+            <!-- PETUNJUK: Ganti link src="..." di bawah ini -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md aspect-square bg-slate-200 border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=600&q=80" 
+                     alt="Foto Alena 4" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <p class="text-white text-xs font-medium">Bidadariku ✨</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-w-xl mx-auto px-4 mb-16 text-center">
+        <button onclick="showSecretModal()" class="pulse-glow px-8 py-4 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 text-white font-bold rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 mx-auto">
+            <i class="fa-solid fa-key text-lg"></i>
+            <span>Buka Surat Rahasia Buat Alena</span>
+        </button>
+    </section>
+
+    <!-- Modal Surat Rahasia -->
+    <div id="secret-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
+        <div class="glass max-w-md w-full p-6 md:p-8 rounded-3xl text-center shadow-2xl relative border border-white/90">
+            <button onclick="closeSecretModal()" class="absolute top-4 right-4 w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-sm transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-4xl mb-3">💌</div>
+            <h3 class="text-2xl font-bold font-romantic text-pink-600 mb-4">Pesan Rahasia Untuk Alena 🔐</h3>
+            <div class="bg-white/80 p-5 rounded-2xl border border-pink-100 text-left text-sm text-slate-700 leading-relaxed space-y-3 shadow-inner">
+                <p class="font-semibold text-pink-600">Hai Alena Sayang,</p>
+                <p>Terima kasih ya udah hadir dan melengkapi hari-hariku sejak 10 Agustus 2026. Aku bahagia banget bisa kenal dan bersamamu.</p>
+                <p>Aku janji bakal selalu berusaha bikin Alena tersenyum, menemani kamu di setiap kondisi, dan menyayangi Alena setiap hari.</p>
+                <p class="text-right font-romantic text-xl text-pink-600 font-bold pt-2">I Love You So Much, Alena! ❤️</p>
+            </div>
+            <button onclick="closeSecretModal()" class="mt-6 w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-2xl shadow-md transition-all active:scale-95">
+                I Love You Too! 💕
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-slate-500 text-xs py-4">
+        Dibuat dengan ❤️ khusus untuk Alena | 10 Agustus 2026
+    </footer>
+
+    <script>
+        // Tanggal Jadian Spesial: 10 Agustus 2026
+        const startDate = new Date(2026, 7, 10, 0, 0, 0); // Month is 0-indexed (7 = Agustus)
+
+        // Real-time Love Counter
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            if (diff < 0) {
+                // Jika tanggal jadian belum terlewati
+                document.getElementById('counter-days').innerText = '00';
+                document.getElementById('counter-hours').innerText = '00';
+                document.getElementById('counter-minutes').innerText = '00';
+                document.getElementById('counter-seconds').innerText = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('counter-days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('counter-hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('counter-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('counter-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // Heart Particles Generator
+        function createHeartParticle() {
+            const container = document.getElementById('heart-container');
+            if (!container) return;
+            
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+            
+            const icons = ['❤️', '💖', '🌸', '✨', '💕', '💗', '🌹'];
+            heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+            
+            heart.style.left = Math.random() * 98 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 14 + 14) + 'px';
+            
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeartParticle, 450);
+
+        // Welcome Modal Handler
+        function startExperience() {
+            const modal = document.getElementById('welcome-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => modal.remove(), 500);
+
+            // Celebration Confetti
+            confetti({
+                particleCount: 60,
+                spread: 70,
+                origin: { y: 0.8 },
+                colors: ['#f472b6', '#fb7185', '#e879f9']
+            });
+        }
+
+        // Dodging "Gak" Button Logic
+        function moveNoButton() {
+            const noBtn = document.getElementById('no-btn');
+            const container = document.getElementById('button-wrapper');
+            
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            const maxX = containerRect.width - btnRect.width;
+            const maxY = 100;
+
+            const randomX = Math.floor(Math.random() * Math.max(10, maxX));
+            const randomY = Math.floor((Math.random() - 0.5) * maxY);
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${Math.max(0, randomX)}px`;
+            noBtn.style.top = `${randomY}px`;
+        }
+
+        // "Mau" Button Click Handler
+        function handleYesClick() {
+            document.getElementById('question-box').classList.add('hidden');
+            document.getElementById('success-box').classList.remove('hidden');
+
+            // Burst Confetti Effects
+            const count = 180;
+            const defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55, colors: ['#f472b6', '#f43f5e'] });
+            fire(0.2, { spread: 60, colors: ['#ffffff', '#fb7185'] });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+        }
+
+        // Card Toggle Expansion
+        function toggleCard(cardElement) {
+            const content = cardElement.querySelector('.expanded-content');
+            const hintText = cardElement.querySelector('.hint-text');
+            const icon = cardElement.querySelector('.click-hint i');
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                hintText.innerText = 'Klik buat baca';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                hintText.innerText = 'Tutup';
+                icon.style.transform = 'rotate(90deg)';
+            }
+        }
+
+        // Modal Handlers
+        function showSecretModal() {
+            document.getElementById('secret-modal').classList.remove('hidden');
+        }
+
+        function closeSecretModal() {
+            document.getElementById('secret-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
