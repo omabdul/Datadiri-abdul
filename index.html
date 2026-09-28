@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Abdul</title>
+    <!-- CSS Terpisah -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk Icon Sosmed & UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Efek Background Aurora Liquid Glass -->
+    <div class="aurora-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigasi Liquid Glass -->
+    <header class="navbar-container">
+        <nav class="liquid-nav">
+            <div class="nav-brand">
+                <span class="brand-text">Abdul<span class="dot">.</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-target="home">Beranda</a></li>
+                <li><a href="#about" class="nav-link" data-target="about">Tentang</a></li>
+                <li><a href="#portfolio" class="nav-link" data-target="portfolio">Portofolio</a></li>
+                <li><a href="#contact" class="nav-link" data-target="contact">Kontak</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="liquid-btn-icon" title="Ubah Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="main-content">
+        <!-- Halaman Beranda -->
+        <section id="home" class="page-section active">
+            <div class="hero-card liquid-card">
+                <div class="hero-badge">Web Developer & IT Student</div>
+                <h1 class="hero-title">Halo, Saya <span class="gradient-text">Abdul</span></h1>
+                <p class="hero-desc">Siswa SMK PGRI 01 Sukorejo yang berfokus pada pengembangan web, jaringan, dan teknologi digital modern.</p>
+                
+                <!-- Jam Digital Real-Time -->
+                <div class="clock-container liquid-subcard">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="realtime-clock">00:00:00</span>
+                    <span class="clock-date" id="realtime-date">Senin, 28 Sep 2026</span>
+                </div>
+
+                <div class="hero-btns">
+                    <a href="#portfolio" class="liquid-btn primary" data-target="portfolio">Lihat Portofolio</a>
+                    <a href="#contact" class="liquid-btn secondary" data-target="contact">Hubungi Saya</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman Tentang Saya -->
+        <section id="about" class="page-section">
+            <div class="content-card liquid-card">
+                <h2 class="section-title">Tentang <span class="gradient-text">Saya</span></h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Nama lengkap saya adalah <strong>Bellatrix Abdul Rahman</strong>, namun biasa dipanggil <strong>Abdul</strong>. Saat ini saya menempuh pendidikan di <strong>SMK PGRI 01 Sukorejo</strong> dengan spesialisasi di bidang web development dan teknologi informasi.</p>
+                        <p>Saya memiliki ketertarikan mendalam dalam menciptakan antarmuka web yang bersih, responsif, dan interaktif menggunakan teknologi modern seperti HTML, CSS, JavaScript, PHP, Laravel, serta Tailwind CSS.</p>
+                    </div>
+                    <div class="skills-box liquid-subcard">
+                        <h3>Keahlian Utama</h3>
+                        <div class="skill-tags">
+                            <span>HTML5 / CSS3</span>
+                            <span>JavaScript</span>
+                            <span>PHP & Laravel</span>
+                            <span>React.js</span>
+                            <span>Tailwind CSS</span>
+                            <span>MikroTik & Jaringan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman Portofolio -->
+        <section id="portfolio" class="page-section">
+            <div class="content-card liquid-card">
+                <h2 class="section-title">Portofolio <span class="gradient-text">Proyek</span></h2>
+                <p class="section-subtitle">Beberapa karya dan proyek web yang telah saya kembangkan.</p>
+                
+                <div class="portfolio-grid">
+                    <div class="project-card liquid-subcard">
+                        <div class="project-img"><i class="fa-solid fa-code"></i></div>
+                        <h3>Sistem Manajemen Web</h3>
+                        <p>Aplikasi web berbasis PHP dan Laravel untuk pengelolaan data secara efisien dengan antarmuka modern.</p>
+                        <div class="project-tech"><span>Laravel</span><span>Tailwind</span><span>MySQL</span></div>
+                    </div>
+                    <div class="project-card liquid-subcard">
+                        <div class="project-img"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3>Portal Hotspot & Jaringan</h3>
+                        <p>Kustomisasi halaman login jaringan dan manajemen router dengan desain interaktif dan responsif.</p>
+                        <div class="project-tech"><span>HTML/CSS</span><span>JavaScript</span><span>MikroTik</span></div>
+                    </div>
+                    <div class="project-card liquid-subcard">
+                        <div class="project-img"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Portofolio Interaktif</h3>
+                        <p>Website portofolio pribadi dengan tema liquid glassmorphism, animasi aurora, dan mode gelap dinamis.</p>
+                        <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman Kontak (Hanya IG, Telegram, GitHub, TikTok) -->
+        <section id="contact" class="page-section">
+            <div class="content-card liquid-card">
+                <h2 class="section-title">Hubungi <span class="gradient-text">Saya</span></h2>
+                <p class="section-subtitle">Mari terhubung melalui platform sosial media di bawah ini.</p>
+                
+                <div class="social-grid">
+                    <a href="https://www.instagram.com/abd4l_r4hm4n" target="_blank" class="social-card liquid-subcard">
+                        <i class="fa-brands fa-instagram" style="color: #E1306C;"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://t.me/xydul017" target="_blank" class="social-card liquid-subcard">
+                        <i class="fa-brands fa-telegram" style="color: #229ED9;"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-card liquid-subcard">
+                        <i class="fa-brands fa-github" style="color: #e2e8f0;"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@abdul.dev01" target="_blank" class="social-card liquid-subcard">
+                        <i class="fa-brands fa-tiktok" style="color: #ff0050;"></i>
+                        <span>TikTok</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman Login Tersembunyi (Akses via #login / URL) -->
+        <section id="login" class="page-section">
+            <div class="auth-card liquid-card">
+                <div class="auth-header">
+                    <h2>Admin <span class="gradient-text">Login</span></h2>
+                    <p>Masukkan kredensial untuk masuk ke sistem.</p>
+                </div>
+                <form class="auth-form" onsubmit="event.preventDefault(); alert('Fitur login aktif.');">
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="liquid-btn primary full">Masuk</button>
+                </form>
+                <div class="auth-back">
+                    <a href="#home" data-target="home"><i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Kecil dengan Link Rahasia Login -->
+    <footer class="footer-container">
+        <p>&copy; 2026 Abdul. Dibuat dengan tema Liquid Glass. <a href="#login" class="secret-login-link" data-target="login">.</a></p>
+    </footer>
+
+    <!-- JS Terpisah -->
+    <script src="script.js"></script>
+</body>
+</html>
